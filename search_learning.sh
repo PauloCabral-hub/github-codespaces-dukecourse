@@ -12,3 +12,8 @@ find . -name <pattern> # will find files in the current directory or bellow in w
 # Run the following command to compare the time of the two strategies
 time / -name <pattern> && time locate <pattern>
 
+# Run the following in the Github codespace
+find . -name ".txt" | xargs grep <pattern> # it shows every occurence of the pattern in the file with the respective file.g
+
+# Compare two approaches
+time find . -name ".txt" | xargs grep <pattern> && time grep -R <pattern>
