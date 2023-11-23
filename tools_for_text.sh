@@ -15,6 +15,8 @@ cat <file1> | rev | cut -d, -f1 | rev
 # For very large files, you can use the following command to shuffle lines
 shuf -n 10 <file1>
 
+# grep can also be used with regex for very powerful utilities see: https://en.wikipedia.org/wiki/Regular_expression#:~:text=A%20regular%20expression%20(shortened%20as,strings%2C%20or%20for%20input%20validation.
+
 # For uppercase or lowercase strings
 tr a-z A-Z <file or string>
 
