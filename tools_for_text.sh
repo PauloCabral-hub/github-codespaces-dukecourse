@@ -3,7 +3,7 @@
 # For finding differences in structure of two files
 diff <file1> <file2>
 
-# To find unique line entries in a given file
+# To find unique line entries in a given file, ATTENTION: uniq must be used with sort;
 uniq <file1>
 
 # To sort the file
