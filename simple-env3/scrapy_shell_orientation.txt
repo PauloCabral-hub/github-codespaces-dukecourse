@@ -1,0 +1,47 @@
+We will start working with scrapy shell
+
+Run this in the command line
+> scrapy shell <url>
+ex.: scrapy shell https://cve.mitre.org/data/refs/refmap/source-EXPLOIT-DB.html
+
+You can run the following command inside scrapy shell to get every single table
+in the url:
+> response.xpath('//table')
+
+To get the number of tables:
+> len(response.xpath('//table'))
+
+Our task for now will be to identify the table that has a specific dimension.
+We can go through tables to do that. For example:
+> response.xpath('//table')[0]
+
+Important: Now we are going to start using some HTML terminology, 'tr' stands
+for table row and 'td' stands for table data.
+
+In this case we are looking for the table who has 10719 items in its rows
+<check if this is really the case, NEI in the video>.
+
+You will find that the 3rd table is the one we are interested in. Run the
+following code:
+
+> len(response.xpath('//table')[3])
+
+Now, we can assign this table to a variable:
+table = response.xpath('//table')[3]
+
+To print every row in the table:
+> table.xpath('//tr')
+
+But that is not very helpfull, so let us assign a specific row
+to another variable:
+> child = table.xpath('//tr')[10]
+
+To extract the text in the assigned items
+> child.xpath('td//text()')[0].extract()
+
+The syntax of scrapy shell allow loops, you can use tabs to indent each level
+> for row in table.xpath('//tr'):
+>     try:
+>         print(row.xpath('td//text()')[0].extract())
+>     except IndexError:
+>         pass  

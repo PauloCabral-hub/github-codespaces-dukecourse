@@ -26,3 +26,7 @@ to proceed to scrap. Run the following:
 ex.: > scrapy genspider cve cve.mitre.org]
 
 This will create a <spider_name>.py in the current directory
+
+One thing that you should work on is to no the difference between
+structured HTML and uninstructured HTML. The former is always 
+worse to work with.
