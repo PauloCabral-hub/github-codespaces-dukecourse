@@ -45,3 +45,6 @@ The syntax of scrapy shell allow loops, you can use tabs to indent each level
 >         print(row.xpath('td//text()')[0].extract())
 >     except IndexError:
 >         pass  
+
+Next, you should look to a way of bringing this information to a text you can 
+use.
