@@ -1,0 +1,28 @@
+Scrapy is a library that you should use in a virtual environment
+becouse it has a lot of dependencies, so for efficiency reasons
+you should keep it to your project:
+
+to install, simply run in the command line the following:
+> pip install scrapy
+
+You should see it that after installing scrapy, you can 
+create a project by running the following:
+> scrapy startproject <project_name>
+
+
+
+You can see that after the aforementioned command, a set
+of directories and files were created, use tree to see
+it:
+> tree -L 2 <project_name>
+
+You should see that there is a nested directory with the
+same <project_name> and a scrapy.cfg, that is, a configuration
+file.
+
+After creating the project, you will see recomendations on how 
+to proceed to scrap. Run the following:
+> scrapy genspider <spider_name> <domain>
+ex.: > scrapy genspider cve cve.mitre.org]
+
+This will create a <spider_name>.py in the current directory
