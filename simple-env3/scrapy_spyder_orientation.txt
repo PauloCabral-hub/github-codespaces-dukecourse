@@ -1,0 +1,6 @@
+After exploring using the instruction in scrapy_shell_orientation,
+you should modify the cve.py in accordance.
+Then, to output the results, but now using the python script, run
+the following:
+
+> scrapy crawl cve.py

@@ -1,0 +1,9 @@
+Working with websites that changes oftenly is not good for scrapping.
+For this reason it is recommended to download the HTML. You can do
+this by running:
+
+> wget <web_url>
+
+Other useful thing is to estimate the time of your spider crawl
+
+> time scrapy crawl cve
