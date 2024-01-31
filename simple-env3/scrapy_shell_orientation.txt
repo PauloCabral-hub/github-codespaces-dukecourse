@@ -24,27 +24,29 @@ In this case we are looking for the table who has 10719 items in its rows
 You will find that the 3rd table is the one we are interested in. Run the
 following code:
 
-> len(response.xpath('//table')[3])
+> len(response.xpath('//table')[3].xpath('tr'))
 
 Now, we can assign this table to a variable:
-table = response.xpath('//table')[3]
+table = response.xpath('//table')[3] // goes to cve
 
 To print every row in the table:
 > table.xpath('//tr')
 
 But that is not very helpfull, so let us assign a specific row
 to another variable:
-> child = table.xpath('//tr')[10]
+> row = table.xpath('//tr')[10]
 
 To extract the text in the assigned items
-> child.xpath('td//text()')[0].extract()
+> row.xpath('td//text()')[0].extract()
 
 The syntax of scrapy shell allow loops, you can use tabs to indent each level
-> for row in table.xpath('//tr'):
->     try:
->         print(row.xpath('td//text()')[0].extract())
->     except IndexError:
->         pass  
+>
+for row in table.xpath('//tr'):
+     try:
+         print(row.xpath('td//text()')[0].extract())
+     except IndexError:
+         pass  
+>
 
 Next, you should look to a way of bringing this information to a text you can 
 use.
