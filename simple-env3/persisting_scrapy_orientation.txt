@@ -1,0 +1,12 @@
+Now we are going to learn how to save the output of
+a scrapy in well structured data formats such as
+csv, json and sql.
+
+> see cve_persist_csv for details
+
+> see cve_persist_json for details
+
+> see cve_persist_sql for details
+
+
+
