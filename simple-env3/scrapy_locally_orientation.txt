@@ -1,9 +1,27 @@
-Working with websites that changes oftenly is not good for scrapping.
-For this reason it is recommended to download the HTML. You can do
-this by running:
+Website changes can make your spider useless.
+To prevent this, we are going to see how to 
+scrapy locally.
 
-> wget <web_url>
+1. Change directory to where your spiders are,
+and run:
+> wget https://cve.mitre.org/data/refs/refmap/source-EXPLOIT-DB.html
 
-Other useful thing is to estimate the time of your spider crawl
-
+2. Now time how much time it takes to run your project directly from
+the website:
+!Change to the top directory!
 > time scrapy crawl cve
+
+3. Now we are going to adapt our cve to scrapy locally. We are going
+to use our previous spider as a basis.
+!Change to spiders directory!
+> cp cve.py cve_local.py
+
+4. The cve_local should be used now, time it again with the local 
+scrapy:
+!Change to the top directory!
+> time scrapy crawl cve_local
+
+You should see how faster is to scrapy locally
+
+You can also make slight modifications to your local file to see if 
+your spiders continues to work after them.

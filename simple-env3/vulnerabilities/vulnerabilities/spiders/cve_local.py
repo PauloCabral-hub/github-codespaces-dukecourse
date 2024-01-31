@@ -1,10 +1,13 @@
 import scrapy # ignore this warning
+import os
 
+current_dir = os.path.dirname(__file__)
+url = os.path.join(current_dir, "source-EXPLOIT-DB.html")
 
 class CveSpider(scrapy.Spider):
-    name = "cve"
+    name = "cve_local"
     allowed_domains = ["cve.mitre.org"]
-    start_urls = ["https://cve.mitre.org/data/refs/refmap/source-EXPLOIT-DB.html"]
+    start_urls = [f"file://{url}"] # this will do the job in case of the local file
 
     def parse(self, response):
         for table in response.xpath('//table'):
