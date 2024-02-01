@@ -1,3 +1,4 @@
+!You will need this: https://www.tutorialspoint.com/xpath/xpath_expression.htm !
 Scrapy is a library that you should use in a virtual environment
 becouse it has a lot of dependencies, so for efficiency reasons
 you should keep it to your project:
