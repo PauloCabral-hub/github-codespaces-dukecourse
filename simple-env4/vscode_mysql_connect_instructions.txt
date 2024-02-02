@@ -1,0 +1,14 @@
+1. We start by getting to extensions and installing MySQL management tool.
+2. In the explorer button, click on MySQL
+    > In MySQL tab, the upper right corner shows a button, click on it
+    > A field will come out asking for the name of the database host in 
+    which you plan to connect.
+        ex.: localhost
+    > The next field will come out asking for the authentication. Type:
+        ex.: root 
+    > It will then ask for a password. For our example, we will not need
+    one. Press enter.
+    > It will the will automatically populated the next field with a port
+    number. Press enter.
+    > The last field as for SSL certificate, used for encription. This is 
+    not necessary in our case. Press enter.

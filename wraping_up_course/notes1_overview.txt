@@ -1,0 +1,5 @@
+Important things we will learn:
+- Makefiles
+- Requirements.txt
+- Dockerfile
+- Microservices

@@ -1,0 +1,14 @@
+Jupyter is not only for python. The lenguage will
+depend on the keernel you choose.
+
+Common kernels are:
+- Python
+- Julia
+- R
+
+1. You can install jupyter by using pip:
+> pip install jupyter
+
+2. After installation you can start a jupyter notebook by
+running the following commandline:
+> jupyter notebook
