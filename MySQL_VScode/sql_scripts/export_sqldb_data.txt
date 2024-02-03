@@ -1,0 +1,10 @@
+To export data from a sql database out, a tool
+called sqldump is oftenly the one used for the
+job
+
+1. For this we will export our database just 
+created using the following commandline code:
+> mysqldump -u root -p 
+
+It tells sql that the user is the root and that the password is 
+what you are going to type

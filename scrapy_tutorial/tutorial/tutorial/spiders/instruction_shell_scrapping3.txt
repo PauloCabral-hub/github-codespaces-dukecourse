@@ -1,0 +1,16 @@
+The idea here is to get information from pages and subpages
+
+1. Open scrapy shell and get your response:
+> scrapy shell https://quotes.toscrape.com
+
+2. Now get the link by doing
+> response.css("li.next a::attr(href)").get()
+
+See that here we have something new the attr(href)
+
+this line is equivalent
+> response.css("li.next a").attr["href"]
+
+Implement this the modifications accordingly in quotes_simp_spider2.py
+
+We continue latter with a shortcut for creating requests.

@@ -1,0 +1,7 @@
+To install jupyterlab
+> pip install jupyterlab
+
+To run jupyter lab
+> jupyter lab
+
+Jupyter lab is a complete IDE, it has even a debuger.

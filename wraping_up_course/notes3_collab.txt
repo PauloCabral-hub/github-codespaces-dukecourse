@@ -1,0 +1,19 @@
+Google collab has many packages pre-installed, 
+is python only and is a complete IDE.
+
+There is a lot of shared documents and one par
+ticular interesting one is
+
+aihub.cloud.google.com
+
+https://research.google.com/seedbank/  # domain appears to have changed
+
+There you going to find several notebooks that
+can help you learn about data science and ma-
+chine learning.
+
+You can connect your collab notebook to your google drive
+
+Uploaded files are not persisted in following sections of collab
+
+Can also connect your notebook to github

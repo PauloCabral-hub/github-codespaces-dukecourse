@@ -1,0 +1,64 @@
+In order to workout the instructions of the class, you will have to
+perform some necessary tasks.
+
+Class: Using VScode and MySQL server 
+
+The content you find here was available at 01/02/24 in the following
+website:
+
+https://medium.com/@rupakbhandari/connecting-to-a-mysql-database-from-visual-studio-code-ca342e520ece
+
+Medium is a website with very good content! Remember this whenever 
+you need help!
+
+1. In your ubuntu terminal, run the following command:
+> sudo apt install mysql-server
+
+2. Check if the stallation was successful by running:
+> mysql --version
+
+3. Then, run the following in the commandline:
+> sudo mysql -u root -p 
+
+You will be prompted to insert your root password.
+After that, you will be directed to MySql shell
+
+4. In the shell, run the following to create a user:
+> CREATE USER '<your_user_name>'@'localhost' IDENTIFIED WITH mysql_native_password BY '<database_root_user_password>';
+
+In our example, we will use:
+<your_user_name> = base_user
+<database_root_user_password> = pass123
+
+5. Next, you will have to grant access to the user you
+just created. To do this, perform the following:
+> GRANT ALL PRIVILEGES ON *.* TO 'base_user'@'localhost';
+
+6. To review the privileges just granted, run the following
+> SHOW GRANTS FOR base_user@localhost;
+
+7. To load the privileges that were just granted, run the
+following.
+> FLUSH PRIVILEGES;
+
+8. Now you should created your database
+> CREATE DATABASE <DATABASE_NAME>;
+
+In our example, we will be using the following:
+<DATABASE_NAME> = sampledb
+
+9. Now you can finally quite shell by running:
+EXIT;
+
+-----------------------------------------------
+Now we recommend installing the following extensions
+in VScode:
+a. SQL SERVER (mmsql)
+b. SQL TOOLS
+c. QLTools MySQL/MariaDB (this might have a slightly different name)
+
+Obs.:  After installing these extensions, you can head to the icon in 
+the bottom left of the left tab (database symbol), choose MySql, fill
+with the information of the database and user we created and connect.
+However, this steps might not be necessary (I did not tested). Any doubt
+refer to the link in the beggining of the page.

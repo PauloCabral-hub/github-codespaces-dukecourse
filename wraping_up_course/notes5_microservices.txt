@@ -1,0 +1,93 @@
+Microservices characteristics
+
+Independency
++ Means that a services can be made in any language.
+
+Single Purpose
++ NEI
+
+Benefits of Microservices
++ Speed
++ Deploy
++ + Inserts runtime and code in the same location.
++ Resilience
++ + If something wrong happens, it will not be attached to your system.
++ Polyglot
++ + Multi-language
+
+---------------------------------------------------
+Project Structure for continuous integration
+
+Consider the linked list
+[test -> lint (checking) -> format]
+
+This linked list of processes must be coninuously made, that is:
++ After a push to the git repository
+
+A -Make file go through the linked list locally, and at the git
+the reaction system in the server side will Build, what is equi-
+valent to waht is done with the -Make file locally
+
+We will be working with this repository as a template:
+https://github.com/noahgift/continuous-integration
+
+This project contains the pipeline used by github actions
+to go through the linked list.
+
+Obs.: remember that if you source from your ~/.bashrc file
+you will get to the enviroment automatically whenever you
+start your terminal
+
+You can go through the CI pipeline by >
+> make all
+
+If everything goes fine, you should push
+Getting to test the changes needs a workflow. This workflow
+is not forked with the repository, you must create yourself
+
+-----------------------------------------------------------
+
+Microservices with FastAPI - a python webservice
+
+For this view we will be using the following project as a 
+basis:
+https://github.com/noahgift/fastapi
+- To show how it is working, the following will be used:
+-- AWS cloud9
+-- AWS app runner
+
+-----------------------------------------------------------
+
+Containerized Microservices
+
+Remember kubbernets is one of the most used container services
+
+Containers are able to pack everything that you need in order
+to deliver that project:
+- os
+- packages
+- scripts
+
+And to timer reactions, such as a web request for that particular
+service
+
+--------------------------------------------------
+Deploying a containerized .NET 6 API
+
+we will be using this as a basis:
+https://github.com/noahgift/dot-net-6-aws
+
+architecture is on the page
+
+ON DEMAND: undertand curl
+
+-------------------------------------------------
+Deploying a Microservices
+
+1. Creat a ECR: elastic container repository
+2. Go to push commands and copy the content to a text file.
+3. Go to cloud9: Now you can log into the ECR
+4. Build the container: an option allows delivering a new version in every push
+
+ON DEMAND: Understand ports: 
+https://medium.com/@garstep/can-you-explain-a-few-of-the-internet-assigned-numbers-authority-list-and-in-doing-so-explain-what-cc73cc257799

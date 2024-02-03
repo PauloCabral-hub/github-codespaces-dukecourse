@@ -1,0 +1,40 @@
+
+1. Let us run the following command:
+> scrapy shell  https://quotes.toscrape.com
+
+2. Now, run the following
+> response.css("div.quote")
+
+Verify that everything is inside div tag, class quote
+
+3. Let us isolate of the Selectors in a variable
+> quote = response.css("div.quote")[0] 
+
+Verify that you have a nested structure, div.quote 0 probably is related to the
+first level
+
+IMPORTANT: duplicate the tab so you can inspect the code to know what are you doing.
+4. Let us isolate another subelement
+> text = quote.css("span.text::text").get()
+
+5. Let us take the the author now:
+> author = quote.css("small.author::text").get()
+
+6. Now we are going to get a list of information that is nested inside 
+div tag of class tags
+> tags = quote.css("div.tags a.tag::text").getall()
+
+Note the space to get the nested information
+
+Now try to iterate the iterables and put this in a dictionary:
+for quote in quote.css("div.quote"):
+    text = quote.css("span.text::text").get()
+    author = quote.css("small.author::text").get()
+    tags = quote.css("div.tags a.tag::text").getall()
+    print({"text": text, "author": author, "tags": tags})
+
+7. Finally, you can place this in a JSON file by applying the following command:
+> scrapy crawl quotes_simplyfied_spider -O quotes.json
+
+IMPORTANT: -O flag overwrites any existing file with the same name. Remember to 
+run this from the top project folder.

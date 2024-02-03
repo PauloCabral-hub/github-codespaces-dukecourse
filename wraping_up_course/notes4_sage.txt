@@ -1,0 +1,35 @@
+AWS SageMaker is multi-kernel
+Not-free
+Designed for machine-learning pipeline infrastructure.
+
+Set-up
+1. Create a SageMaker domain
+2. Create a notebook. Price is size dependent.
+3. You can choose traditional jupyter notebook interface
+
+You can import a special sdk in amazon plataform
+import sagemaker
+
+ex.:
+session = sagemaker.session()
+session.boto_region_name() """ will give you information on the location of the 
+of the hardware you are using """"
+
+After using it, you should close and stop it.
+
+---------------------------------------------
+SageMaker Studio
+
+...Is a jupyter lab.
+
+SageMaker Jump Start
+- curated information to start working
+-- blogs, snippets, etc.
+
+---------------------------------------------
+SageMaker Pipelines
+
+1. Create project
+2. Choose a template
+
+There are graphs of the pipeline 

@@ -12,3 +12,5 @@ Common kernels are:
 2. After installation you can start a jupyter notebook by
 running the following commandline:
 > jupyter notebook
+
+obs.: Not able to make it work in codespaces
