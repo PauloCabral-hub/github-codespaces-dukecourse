@@ -1,1 +1,178 @@
-notes6_cltools.txt
+We will be using the following repository is a basis:
+
+https://github.com/alfredodeza/jformat
+
+Important:
+We will be seeing tox.ini files. They help to test your code with different kernels
+
+-----------------------------------------------------
+Frameworks for formatting
+
+sys = more manual > import sys
+argparse = less manual > import argparse
+click = ideal > import click
+
+ON DEMAND: Understanding __name__ = '__main__'.
+
+Superficial explanation if <__name__ = '__main__': something> indicates that you are using the python file as a command line
+tool
+
+ON DEMAND: Understanding decorator's, or @ tools
+
+snippet preppending the function main
+@click.command()
+@click.argument("filename") # assign to the variable filename the commandline passed argument
+...
+
+
+improved snippet version
+@click.command()
+@click.argument("filename", type=click.Path(exists=True)) # ... displays a warning if the filename does not exists
+...
+
+improved snippet version
+@click.command()
+@click.argument("filename", type=click.Path(exists=True)) 
+@click.option('--verbose','-v', is_flag=True) # add the following option along the following alias to the commandline tool
+def main(filename, verbose):
+    if verbose:
+        print("Running in verbose mode")
+...
+
+obs.: this will also add to your commandline help or --help
+
+improved snippet version
+@click.command()
+@click.argument("filename", type=click.Path(exists=True)) 
+@click.option('--verbose','-v', is_flag=True) # add the following option along the following alias to the commandline tool
+def main(filename, verbose):
+    if verbose:
+        click.echo("Running in verbose mode") # better than print, assures printing in every environment. Also do better with Unicode
+...
+
+ON DEMAND: Unicode
+
+-----------------------------------------------------------
+
+C# NLP (in cloud9)
+
+1. To check if the version is up to date, run the follwing command in the commandline 
+> cdk --version
+2. Then create the project according to the aws guidelines
+> mkdir cdk_workshop && cd cdk_workshop
+3. Run the next command according to the workshop page
+> ...
+4. If everything went fine 
+> cdk ls
+should work
+
+-----------------------------------------------------------
+
+Packaging your project
+
+We will be using the following repository is a basis:
+
+https://github.com/alfredodeza/jformat
+
+1. Create your virtual enviroment or hidden virtual environment
+> python -m venv /.env
+
+Obs.: Remember that for checking a installed package:
+> which <package_name>
+
+SOLVED: python -m calls for the python module specified
+
+2. MANIFEST.in is used to include and exclude paths/files that you do not want to distribute, such as an image.
+It looks like this:
+include LICENSE
+exclude /path/to/image.png
+
+3. setup.py is conventioned to have its specific information. It looks like this:
+
+///////////////////////////////////////////////////////
+from setuptools import setup, find_packages
+
+setup(
+    name='jformat', # name that users going to use to install your package
+    version='0.1', # to track changes to the package
+    description='Reformat any file or input into JSON',
+    author='Alfredo Deza',
+    author_email='alfredo@deza.pe',
+    test_suite='jformat',
+    scripts=['bin/jformat'],
+    zip_safe=False,
+    include_package_data=True,
+    packages=find_packages()
+    install_requires = ["some_package1", "some_package2"], # some packages necessary for you package to run
+    entry_points = """ 
+    [consele_scripts]
+    jformat=jformat.main:main
+    """ # states that the console tool jformat will use in main.py module and corresponding main function
+)
+///////////////////////////////////////////////////////
+
+4. To execute our setup.py file inside our local virtual environment:
+> python setup.py develop # this will install the commandline tool in our path
+from this point, every modification will main will be instantly available in the commandline tool
+
+After that you can check with:
+> which jformt 
+that the commandline tool will be available in .vev/bin
+
+--------------------------------------------------------
+Distribute through Pypi: Python Package Indexing
+
+How it looks like when trying to upload?
+
+1. You should create what we call a source distribution. You can do this by
+> python setup.py sdist
+
+This will create a tar.gz file
+
+2. Then, we are going to use twine:
+> pip install twine
+
+3. To upload, the Pypi credentials are necessary, but you can put them in ~/.pypirc file.
+Then, run:
+> twine upload dist/...tar.gz
+Obs.: You can't upload the same version twice. If that is the case, change the version parameter
+in the setup.py
+
+--------------------------------------------------
+Continuous integration for commandline tools
+
+---
+Linting
+
+There are various linting packages. We will be using
+> pip install flake8
+
+by Running
+> flake8
+it will go through every python file in your directory
+checking for things that you have missed. 
+ex. 'os' imported but not used in somefile.py
+
+obs.: VScode use Pylance instead, under the hood to check
+your code.
+
+---
+Automating with github actions
+
+Nothing new
+
+---
+Automating publishing
+
+1. Log-in into your Pypi account.
+2. Create a token in Pypi
+++ the scope will stablishes to which projects the auto-publishing wil be allowed
+3. Go to your github project > settings > secrets > actions
+4. Create a new repository secret 
+5. Return to actions
+6. Go to new workflow > publishing python package 
+7. Set everything and then commit 
+8. To create a release, in your project, go to tags> releases
++ set a tag, ex.:0.0.1
+
+So deploying in this case is make it available to Pypi, so everyone can download and use your tool 
